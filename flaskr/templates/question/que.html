@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  {% endblock %}
+{%block content%}    
+<!-- question area   -->
+    <section class="post-area">
+        <div class="container">
+    
+          <div class="row">
+    
+            <div class="col-lg-1 col-md-0"></div>
+            <div class="col-lg-10 col-md-12">
+    
+              <div class="main-post">
+    
+                <div class="post-top-area">
+                  <h5 class="pre-title">QUESTION</h5>
+    
+                  <h3 class="title"><a href="#"><b>{{posts['title']}} ?</b></a></h3>
+    
+                  <div class="post-info">
+    
+                    <div class="left-area">
+                      <a class="avatar" href="{{ url_for('auth.profile',id=posts['author_id']) }}"><img src="{{ url_for('static', filename=posts['profile_picture'])}}"" alt="Profile Image"></a>
+                    </div>
+    
+                    <div class="middle-area">
+                      <a class="name" href="#"><b>{{ posts['username'] }}</b></a>
+                      <h6 class="date">on {{posts['created']}}</h6>
+                    </div>
+    
+                  </div><!-- post-info -->
+    
+                  <p class="para">
+                      {{posts['body']}}
+                  </p>
+    
+                </div><!-- post-top-area -->
+    
+    
+                <div class="post-bottom-area">
+                  <ul class="tags">
+                    {%for tag in tags%}
+                    <li><a href="{{ url_for('question.search', tagname=tag[0]) }}">{{tag[0]}}</a></li>
+                    <!-- <li><a href="#">Recommendation</a></li> -->
+                    {%endfor%}
+                  </ul>
+    
+                  <div class="post-icons-area">
+                    <ul class="post-icons">
+                      <li><a>{{posts['upvotes']}}</a>
+                      <li><a href="{{ url_for('question.upvote_question', id=posts['qid']) }}""><i class="ion-heart"></i>Upvote</a></li>
+                      <li><a href="{{ url_for('question.downvote_question', id=posts['qid']) }}"><i class="ion-heart-broken"></i>Downvote</a></li>
+                      <li><a ><i class="ion-chatbubble"></i>{{comments_len}} comments</a></li>
+                      <li><a>{{ans_len}} answers</a></li>
+                      <li class="w3-panel w3-round-xxlarge w3-grey" ><h4><b><a href="{{ url_for('question.create_comment', id=posts['qid']) }}"> POST COMMENT</a></b></h4></li>
+                      <li  class="w3-panel w3-round-xxlarge w3-gray" ><h4><b><a href="{{ url_for('question.createanswer', id=posts['qid']) }}"> ADD ANSWER</a></b></h4></li>
+                    </ul>
+                    <!-- <a class="action blog-post-meta" href="{{ url_for('question.createanswer', id=posts['qid']) }}"> Add Answer</a> -->
+
+
+                  </div>
+    
+                  <!-- </div>post-info -->
+    
+                </div> <!--post-bottom-area -->
+    
+              </div><!-- main-post -->
+            </div><!-- col-lg-8 col-md-12 -->
+          </div><!-- row -->
+        </div><!-- container -->
+
+        <section class="comment-section center-text">
+            <div class="container">
+              <div class="row">
+        
+                <div class="col-lg-2 col-md-0"></div>
+        
+                <div class="col-lg-8 col-md-12">
+                
+                  <div class="commnets-area text-left">
+                      {% for comm in comments %}
+  
+                        <div class="comment">
+                            <p>{{comm[3]}}</p>
+                        </div>
+                      {% endfor%}
+                  </div><!-- commnets-area -->
+                </div><!-- col-lg-8 col-md-12 -->
+        
+              </div><!-- row -->
+        
+            </div><!-- container -->
+          </section>
+
+
+      </section><!-- post-area -->
+
+     
+
+
+  <!-- Answer area  -->
+
+  <section class="post-area">
+      <h4 style="margin-left: 40%;" class="pre-title"><b></b></h4>
+
+      <div class="container">
+        <div class="row">
+            {% for ans in ans  %}
+          <div class="col-lg-1 col-md-0"></div>
+
+          <div class="col-lg-10 col-md-12">
+  
+            <div class="main-post">
+  
+              <div class="post-top-area">
+                <h5 class="pre-title">ANSWERS</h5>
+
+                <p class="para">
+                    {{ ans['body'] }}
+                </p>
+
+                <div class="post-info">
+  
+                  <div class="left-area">
+                    <a class="avatar" href="{{ url_for('auth.profile',id=ans['author_id']) }}"><img src="{{ url_for('static', filename=ans['profile_picture'])}}"" alt="Profile Image"></a>
+                  </div>
+  
+                  <div class="middle-area">
+                    <a class="name" ><b>{{ ans['username'] }}</b></a>
+                    <h6 class="date">on {{ans['created']}}</h6>
+                  </div>
+  
+                </div><!-- post-info -->
+  
+                
+  
+              </div><!-- post-top-area -->
+  
+  
+              <div class="post-bottom-area">
+  
+                <div class="post-icons-area">
+                  <ul class="post-icons">
+                    <li><a>{{ans['upvotes']}}</a>
+                    <li><a href="{{ url_for('question.upvote_answer', id=ans['id']) }}"><i class="ion-heart"></i>Upvote</a></li>
+                    <li><a href="{{ url_for('question.downvote_answer', id=ans['id']) }}"><i class="ion-heart-broken"></i>Downvote</a></li>
+                    {% if ans['accepted'] %}
+                    <li><a href="{{url_for('question.accept_answer', aid=ans['id'], qid=posts['qid'])}}"><i class="ion-checkmark-round"></i>Accepted</a></li>
+                    {% else %}
+                    <li><a href="{{url_for('question.accept_answer', aid=ans['id'], qid=posts['qid'])}}"><i class="ion-checkmark-round"></i>Accept</a></li>
+                    {% endif %}
+                    <li class="w3-panel w3-round-xxlarge w3-grey" ><h4><b><a href="{{ url_for('question.create_comment_ans', qid=posts['qid'], aid=ans['id']) }}"> POST COMMENT</a></b></h4></li>
+                    {% if g.user['id'] == ans['author_id'] %}
+                    <li><a class="action" href="{{ url_for('question.updateanswer', id=ans['id']) }}"><i class="ion-android-create"></i>Edit</a></li>
+                    {% endif %}                  
+                  </ul>
+                </div>
+  
+                </div><!-- post-info -->
+
+          
+
+              </div><!-- post-bottom-area -->
+
+            </div><!-- main-post -->
+
+            <section class="comment-section center-text">
+                <div class="container">
+                  <div class="row">
+            
+                    <div class="col-lg-2 col-md-0"></div>
+            
+                    <div class="col-lg-8 col-md-12">
+                    
+                      <div class="commnets-area text-left">
+                          {% for comm1 in list1[ans['id']] %}
+                        <div class="comment">
+                                <p>{{ comm1['body'] }}</p>     
+                          </div>
+                          {% endfor %} 
+                      </div><!-- commnets-area -->
+                    </div><!-- col-lg-8 col-md-12 -->
+                  </div><!-- row -->
+            
+                </div><!-- container -->
+              </section>
+              {%endfor%}
+          </div><!-- col-lg-8 col-md-12 -->
+        <!-- </div>row -->
+        
+          
+  
+      </div><!-- container -->
+      
+</section>
+    {% endblock %}

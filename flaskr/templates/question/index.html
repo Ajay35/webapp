@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+
+<h3 style="margin-left: 10px; font-family: Playfair Display"><b>{% block title %}Questions{% endblock %}</b></h3>
+ 
+  <!-- {% if g.user %}
+    <a class="action" href="{{ url_for('question.create') }}">New</a>
+  {% endif %} -->
+{% endblock %}
+
+{% block content %}
+{{ pagination.links }}
+     <section class="blog-area section">
+          <!-- <div class="container"> -->
+            <div class="row">
+                {% for post in posts %} 
+              <div class="col-sm-6 col-md-6">
+                <div class="card" style="width:100%">
+      
+                  <div class="single-post post-style-2 post-style-3">
+      
+                    <div class="blog-info">
+                      <h4 class="title"><a href="{{ url_for('question.que', id=post['qid']) }}"><b>{{post['title'] }}</b></a></h4>				
+      
+                      <div class="avatar-area">
+                        <a class="avatar" href="{{ url_for('auth.profile',id=post['author_id']) }}"><img src="{{ url_for('static', filename=post['profile_picture'])}}" alt="Profile Image"></a>
+                        <div class="right-area">
+                          <label><b>{{ post['username'] }}</b></label>
+                          <h6 class="date">on {{ post['created'] }}</h6>
+                        </div>
+                      </div>
+      
+                      <ul class="post-footer">
+                        <li><a><i class="ion-heart"></i>{{post['upvotes']}}</a></li>
+                        {% if g.user['id'] == post['author_id'] %}
+                          <li><a href="{{ url_for('question.update', id=post['qid']) }}"><i class="ion-android-create"></i>Edit</a></li>
+                        {%else%}
+                          <li><a><i class="ion-android-create"></i>Edit</a></li>
+                        {% endif %}
+                      </ul>
+      
+                    </div><!-- blog-right -->
+      
+                  </div><!-- single-post extra-blog -->
+      
+                </div><!-- card -->
+              </div><!-- col-lg-4 col-md-6 -->
+              {% endfor %}
+
+            </div><!-- row -->
+
+          <!-- </div>container -->
+        </section><!-- section -->
+  {{ pagination.links }}
+{% endblock %}

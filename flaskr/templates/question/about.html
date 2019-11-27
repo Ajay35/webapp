@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>KugelBlitz</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="{{url_for('static', filename='img/favicon.png')}}" rel="icon">
+  <link href="{{url_for('static', filename='img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{{url_for('static', filename='lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{{url_for('static', filename='lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='lib/animate/animate.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{{url_for('static', filename='css1/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto text-dark">KugelBlitz</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu text-dark">
+          <li class="menu-active"><a href="{{url_for('question.index')}}">IIITH stackoverflow</a></li>
+          <li><a href="#about" class="text-dark">About Us</a></li>
+          <li><a href="#testimonials" class="text-dark">Team</a></li>
+          <li><a href="#contact" class="text-dark">Contact</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>About Us</h3>
+          <p>IIITH Stackoverflow’s mission is to share and grow the IIITH’s knowledge. A vast amount of the knowledge that would be valuable to many people is currently only available to a few — either locked in people’s heads, or only accessible to select groups. We want to connect the people who have knowledge to the people who need it, to bring together people with different perspectives so they can understand each other better, and to empower everyone to share their knowledge for the benefit of the rest of the world.</p>
+        </header>
+
+      </div>
+    </section><!-- #about -->
+
+
+    <section id="skills">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Tech tools</h3>
+          <p>Tools combined together to make it an effective  and interactive platform for asking question and getting best answers from users</p>
+        </header>
+
+        <div class="skills-content">
+
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Flask<i class="val">85%</i></span>
+            </div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Python<i class="val">70%</i></span>
+            </div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">HTML<i class="val">80%</i></span>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">CSS<i class="val">75%</i></span>
+            </div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">JavaScript<i class="val">40%</i></span>
+            </div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">SQLite<i class="val">60%</i></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    
+    <!--==========================
+      Clients Section
+    ============================-->
+    <section id="testimonials" class="section-bg wow fadeInUp">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Team</h3>
+        </header>
+
+        <div class="owl-carousel testimonials-carousel">
+
+          <div class="testimonial-item">
+            <img src="{{url_for('static', filename='img/1.jpg')}}" class="testimonial-img" alt="">
+            <h3>Nilabja Bhattacharya</h3>
+            <h4>Developer</h4>
+            <p>
+              <img src="{{url_for('static', filename='img/quote-sign-left.png')}}" class="quote-sign-left" alt="">
+              Stay Hungry, Stay Foolish!
+              <img src="{{url_for('static', filename='img/quote-sign-right.png')}}" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="{{url_for('static', filename='img/2.jpg')}}" class="testimonial-img" alt="">
+            <h3>Dhawal Jain</h3>
+            <h4>Developer</h4>
+            <p>
+              <img src="{{url_for('static', filename='img/quote-sign-left.png')}}" class="quote-sign-left" alt="">
+              Learning isn't attained by chance, it must be sought for with ardor and diligence!
+              <img src="{{url_for('static', filename='img/quote-sign-right.png')}}" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="{{url_for('static', filename='img/3.jpg')}}" class="testimonial-img" alt="">
+            <h3>Nitish Kumar Dwivedi</h3>
+            <h4>Developer</h4>
+            <p>
+              <img src="{{url_for('static', filename='img/quote-sign-left.png')}}" class="quote-sign-left" alt="">
+              A misplaced decimal point will always end up where it will do the greatest damage.
+              <img src="{{url_for('static', filename='img/quote-sign-right.png')}}" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="{{url_for('static', filename='img/4.jpg')}}" class="testimonial-img" alt="">
+            <h3>Ajay Jadhav</h3>
+            <h4>Developer &amp; Lead designer</h4>
+            <p>
+              <img src="{{url_for('static', filename='img/quote-sign-left.png')}}" class="quote-sign-left" alt="">
+             Wubba lubba dub dub!
+              <img src="{{url_for('static', filename='img/quote-sign-right.png')}}" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- #testimonials -->
+
+    <!--==========================
+      Team Section
+    ============================-->
+    
+   
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="section-bg wow fadeInUp">
+      <div class="container">
+
+        <div class="section-header">
+          <h3>Contact Us</h3>
+          <p></p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>IIITH, Gachibowli, Hyderabad, India</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">stackoverflow.iiit@gmail.com</a></p>
+            </div>
+          </div>
+
+        </div>
+
+      
+      </div>
+    </section><!-- #contact -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+  
+
+    <div class="container">
+      <div class="copyright text-dark">
+        &copy; Copyright <strong>KugelBlitz</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="{{url_for('static', filename='lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/jquery/jquery-migrate.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/easing/easing.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/superfish/hoverIntent.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/superfish/superfish.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/wow/wow.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/waypoints/waypoints.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/counterup/counterup.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/owlcarousel/owl.carousel.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/isotope/isotope.pkgd.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/lightbox/js/lightbox.min.js')}}"></script>
+  <script src="{{url_for('static', filename='lib/touchSwipe/jquery.touchSwipe.min.js')}}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="{{url_for('static', filename='contactform/contactform.js')}}"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{{url_for('static', filename='js1/main.js')}}"></script>
+
+</body>
+</html>

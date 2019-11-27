@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+
+<h3 style="margin-left: 10px; font-family: Playfair Display"><b>{% block title %}Tags{% endblock %}</b></h3>
+ 
+  <!-- {% if g.user %}
+    <a class="action" href="{{ url_for('question.create') }}">New</a>
+  {% endif %} -->
+{% endblock %}
+
+{% block content %}
+{{ pagination.links }}
+     <section class="blog-area section">
+          <!-- <div class="container"> -->
+            <div class="row">
+                {% for tag in posts %} 
+              <div class="col-sm-6 col-md-6">
+                <div class="card" style="width:100%; height: 100%">
+      
+                  <div class="single-post post-style-2 post-style-3">
+      
+                    <div class="blog-info">
+                      <h4 class="title"><a href="{{ url_for('question.search', tagname=tag[1]) }}"><b>{{tag[1]}}</b></a></h4>				 
+                        <div class="right-area">
+                          <label style=" font-size: 10pt; font-weight: lighter" >{{ tag[2] }}</label>
+                        </div>
+                    </div><!-- blog-right -->
+      
+                  </div><!-- single-post extra-blog -->
+      
+                </div><!-- card -->
+              </div><!-- col-lg-4 col-md-6 -->
+              {% endfor %}
+
+            </div><!-- row -->
+
+          <!-- </div>container -->
+        </section><!-- section -->
+  {{ pagination.links }}
+{% endblock %}

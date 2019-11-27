@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h3 style="margin-left: 10px; font-family: Playfair Display">{% block title %}Comment{% endblock %}</h3>
+{% endblock %}
+
+{% block content %}
+<div class="row" style="margin-top: 20px; margin-bottom: 20px">
+    <div class="col-md-8">
+  <form method="post">
+      <div class="form-group">
+          <label for="body" >Body</label>
+          <textarea class="form-control" id="body" rows="14" name="body">{{ request.form['body'] }}</textarea>
+      </div>
+      <button type="submit" class="btn btn-sm btn-dark">Save</button>
+  </form>
+</div>
+<div class="col-md-4">
+    <div class="panel-group">
+        <div class="panel panel-warning">
+            <div class="panel-heading">How To Ask</div>
+          <div class="panel-body">Is your question about programming?<br><br>
+              We prefer questions that can be answered, not just discussed.<br><br>
+              Provide details. Share your research.
+              </div>
+        </div>
+      </div>
+</div>
+</div>
+{% endblock %}
+{% block footer %}
+{{super()}}
+{% endblock %}

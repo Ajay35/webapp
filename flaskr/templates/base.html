@@ -1,0 +1,231 @@
+<!doctype html>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<title>{% block title %}{% endblock %} Stackoverflow</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="{{url_for('static', filename='js/bootstrap-tagsinput.js')}}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-tagsinput.css') }}">
+<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/w3.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/single-post-2/css/styles.css') }}" rel="stylesheet">	<link href="single-post-2/css/responsive.css" rel="stylesheet">
+<link crossorigin="anonymous" media="all" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+<script>
+    $(document).on('submit', 'form', 'div', function(e) {
+    if (e.delegateTarget.activeElement.localName!=="button") {
+        e.preventDefault();
+    }
+
+})
+  </script>
+  <script src="{{ url_for('static', filename='js/stackoverflow.js') }}" ></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- <nav>
+  <h1>Stackoverflow</h1>
+  <ul>
+    {% if g.user %}
+      <li><a href="{{ url_for('auth.profile',id=g.user['id']) }}">{{ g.user['username'] }}</a>
+      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+    {% else %}
+      <li><a href="{{ url_for('register') }}">Register</a>
+      <li><a href="{{ url_for('auth.login') }}">Log In</a>
+    {% endif %}
+  </ul>
+</nav> -->
+<body>
+    <div class="container">
+        <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-sm-1 pt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                        <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                        <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                        <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                        <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                        <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                    </svg>
+                </div>
+                <div class="col-sm-3 text-left">
+                    <a class="blog-header-logo text-dark" href="{{ url_for('question.index')}}">IIITH Stackoverflow</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-right">
+                    <form class="form-inline my-0 my-sm-0" method="post" action="/search">
+                         <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" name="pattern">
+                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                    </form>
+                </div>
+                
+                <div class="col-1 d-flex justify-content-end align-items-left">
+                    <form class="form-inline my-0 my-sm-0" method="get" action="/tags">
+                         <button class="btn btn-outline-secondary" type="submit">Tags</button>
+                    </form>
+                </div>
+                
+                {% if g.user %}
+                <div class="col-sm-1 d-flex justify-content-end align-items-right">
+                    <form action="/create">
+                      <button type="submit" class="btn btn-sm btn-outline-secondary">Add Question</button>
+                      </form>
+                </div>
+
+                <div class="col-sm-2 d-flex justify-content-end align-items-left">
+                    <div class="avatar-area">
+                        <a class="avatar" href="{{ url_for('auth.profile',id=g.user['id']) }}"><img style="height:30px; width:30px; border-radius:50%" src="{{ url_for('static', filename=g.user['profile_picture'])}}"></a>
+                    </div>
+                    <form action="/auth/logout">
+                       <button type="submit" class="btn btn-sm btn-outline-secondary">Log Out</button>
+                    </form>
+                </div>
+
+                {% else %}
+                <div class="col-sm-3 d-flex justify-content-end align-items-left">
+                    <div class="btn-group mr-2 align-items-left">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+                            Login
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/auth/login" method="post">
+                                            <div class="form-group">
+                                                <label for="username">User Name</label>
+                                                <input type="text" class="form-control" id="username" name="username"
+                                                    aria-describedby="emailHelp" placeholder="Enter User Name">
+                                                <!-- </div> -->
+                                                <!-- <div class="form-group"> -->
+                                                <label for="passwd">Password</label>
+                                                <input type="password" class="form-control" id="passwd" name="password"
+                                                    placeholder="Password">
+                                            </div>
+                                            <button type="submit" class="btn btn-outline-secondary">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModalCenter2">
+                            Sign Up
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Sign Up</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/register" method="post" enctype="multipart/form-data">
+                                                <div class="form-group">
+                                                <label for="username">User Name</label>
+                                                <input type="text" class="form-control" id="username" name="username"
+                                                    aria-describedby="emailHelp" placeholder="User Name">
+                                                </div>
+                                                <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email"
+                                                    aria-describedby="emailHelp" placeholder="Email">
+                                                </div>
+                                                <div class="form-group">
+                                                <label for="passwd">Password</label>
+                                                <input type="password" class="form-control" id="passwd" name="password"
+                                                    placeholder="Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pic">Profile Picture</label>
+                                                <input type="file" id="file" name="file">
+                                            </div>
+                                            <button type="submit" class="btn btn-outline-secondary">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a> -->
+                </div>
+                {% endif %}
+            </div>
+        </header>
+
+        <!-- <div class="nav-scroller py-1 mb-2">
+            <nav class="nav d-flex justify-content-between">
+                <a class="p-2 text-muted" href="#">World</a>
+                <a class="p-2 text-muted" href="#">U.S.</a>
+                <a class="p-2 text-muted" href="#">Technology</a>
+                <a class="p-2 text-muted" href="#">Design</a>
+                <a class="p-2 text-muted" href="#">Culture</a>
+                <a class="p-2 text-muted" href="#">Business</a>
+                <a class="p-2 text-muted" href="#">Politics</a>
+                <a class="p-2 text-muted" href="#">Opinion</a>
+                <a class="p-2 text-muted" href="#">Science</a>
+                <a class="p-2 text-muted" href="#">Health</a>
+                <a class="p-2 text-muted" href="#">Style</a>
+                <a class="p-2 text-muted" href="#">Travel</a>
+            </nav>
+        </div> -->
+    </div>
+    <div class="container">
+    <section class="content">
+        <header>
+          {% block header %}{% endblock %}
+        </header>
+        {% for message in get_flashed_messages() %}
+          <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+        
+      </section>
+    </div> 
+    {% block footer %}
+    <p>&nbsp; &nbsp;</p>
+    <p>&nbsp; &nbsp;</p>
+            <footer class="navbar navbar-default navbar-fixed-bottom">
+    <p class="text-muted" align="center">IIITH Stackoverflow by <a href="{{url_for('question.about')}}" class="text-dark">KugelBlitz</a></p>
+</footer>
+{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h3 style="margin-left: 10px; font-family: Playfair Display">{% block title %}Login{% endblock %}</h3>
+
+{% endblock %}
+
+{% block content %}
+  <form method="post" action="/auth/login" style="margin-top:3%">
+      <div class="form-row">
+          <div class="form-group col-md-4">
+    <label for="username">Username</label>
+    <input name="username" id="username" required class="form-control">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" required>
+      </div>
+      </div>
+        <button type="submit" class="btn btn-md btn-outline-secondary">Log In</button>
+  </form>
+{% endblock %}
+{% block footer %}
+{{super()}}
+{% endblock %}
